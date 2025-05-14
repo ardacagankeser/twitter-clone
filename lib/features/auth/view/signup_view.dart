@@ -1,23 +1,23 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:twitter_clone/common/rounded_small_button.dart';
+import 'package:twitter_clone/common/common.dart';
 import 'package:twitter_clone/constants/constants.dart';
-import 'package:twitter_clone/features/auth/view/signup_view.dart';
+import 'package:twitter_clone/features/auth/view/login_view.dart';
 import 'package:twitter_clone/features/auth/widgets/auth_field.dart';
 import 'package:twitter_clone/theme/pallete.dart';
 
-class LoginView extends StatefulWidget {
+class SignupView extends StatefulWidget {
   static route() => MaterialPageRoute(
-    builder: (context) => LoginView()
+    builder: (context) => SignupView()
   );
-                     
-  const LoginView({super.key});
+
+  const SignupView({super.key});
 
   @override
-  State<StatefulWidget> createState() => _LoginViewState();
+  State<StatefulWidget> createState() => _SignupViewState();
 }
 
-class _LoginViewState extends State<LoginView> {
+class _SignupViewState extends State<SignupView> {
   final appbar = UIConstants.appBar();
 
   final emailController = TextEditingController();
@@ -69,7 +69,7 @@ class _LoginViewState extends State<LoginView> {
 
                 RichText(
                   text: TextSpan(
-                    text: "Don't have an account?",
+                    text: "Already have an account?",
 
                     style: TextStyle(
                       color: Pallete.whiteColor,
@@ -78,7 +78,7 @@ class _LoginViewState extends State<LoginView> {
 
                     children: [
                       TextSpan(
-                        text: " Sign up",
+                        text: " Login",
 
                         style: TextStyle(
                           color: Pallete.blueColor,
@@ -88,7 +88,7 @@ class _LoginViewState extends State<LoginView> {
 
                         recognizer: TapGestureRecognizer()..onTap = () {
                           Navigator.of(context).push(
-                            SignupView.route(),
+                            LoginView.route(),
                           );
                         }
                       ),
